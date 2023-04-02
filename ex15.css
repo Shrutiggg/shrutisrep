@@ -1,0 +1,29 @@
+body{
+ 
+    background-image: linear-gradient(rgb(163, 18, 247) 30%, rgb(42, 10, 226) 70%, rgb(16, 5, 65) 100%);
+}
+
+
+h1{
+    color:aqua;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h2{
+    color:aquamarine;
+    font-size: 20px;
+}
+
+span{
+	font-weight:900;
+	font-style:italic;
+	font-variant:small-caps;
+}
+
+p{
+    line-height: 2;
+    font-size: 15px;
+    color:bisque;
+}
+

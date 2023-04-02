@@ -1,0 +1,87 @@
+<html>
+ <head>
+ <style>
+    
+   table{
+        font-size:25px;
+        border-radius:5px;
+        box-shadow: 12px 12px 12px rgb(190, 190, 250);
+      }
+ </style>
+ </head>
+ <body bgcolor=beige>
+    
+    <form id=f>
+    <table bgcolor=#deaee align=center cellspacing=15>
+    <caption><h1>Temperature Conversion</h1></caption>
+
+    <tr><td colspan=2><label><b>Select Unit - </b></label></td>
+    <td><input type=radio name=input_unit value="k"/>kelvin</td> 
+    <td><input type=radio name=input_unit value="c"/>Celsius</td>
+    <td><input type=radio name=input_unit value="f"/>Fahrenheit</td>
+    </tr>
+
+    <tr><td colspan=2><label> <b>Enter Temperature:</b> </label></td>
+    <td colspan=2><input type=number name=temp size=40 placeholder="Enter here"/></td></tr>
+
+    <tr><td colspan=2><label><b>Convert into - </b></label></td>
+    <td><input type=radio name=output_unit value="k"/>kelvin</td> 
+    <td><input type=radio name=output_unit value="c"/>Celsius</td>
+    <td><input type=radio name=output_unit value="f"/>Fahrenheit</td>
+    </tr>
+    <tr><td colspan=2>
+    <button onclick="convert()">Convert</button><td></tr>
+    </table>
+    </form>
+
+    
+
+    
+    <script type="text/javascript">
+       
+   
+
+      function convert(){
+        var input_unit = document.forms[0].elements['input_unit'].value;
+        var temp = parseInt(document.forms[0].elements['temp'].value);
+        var output_unit = document.forms[0].elements['output_unit'].value;
+         ctemp=0;
+        if(input_unit=='ff'){
+           if(output_unit=='f'){
+              ctemp=temp;
+           }
+           else if(output_unit=='c'){
+              ctemp= (temp-32)*(5.0/9);
+           }
+           else{
+              ctemp= 273+((temp-32)*(5.0/9));
+           }
+         }
+         else if(input_unit=='c'){
+           if(output_unit=='c'){
+              ctemp=temp;
+           }
+           else if(output_unit=='f'){
+              ctemp= (temp*(9.0/5))+32;
+           }
+           else{
+              ctemp=273-temp;
+          }
+         }
+         else{
+           if(output_unit=='k'){
+              ctemp=temp;
+           }
+           else if(output_unit=='f'){
+              ctemp=((temp-273)*(9.0/5))+32;
+           }
+           else{
+              ctemp=273+temp;
+           }
+         }
+         alert("converted temp = "+ctemp);
+         
+       }     
+    </script>
+ </body>
+</html>

@@ -1,0 +1,179 @@
+<html>
+ <head>
+ </head>
+ <body bgcolor=beige>
+    
+    <form method="get" onsubmit="return validate()">
+    <table bgcolor=pink align=center cellspacing=15>
+    <caption><h1>Registration Form</h1></caption>
+    <tr><td colspan=2><label> <b>First Name:</b> </label></td>
+    <td colspan=2><input type=text name=fname size=40 placeholder="Enter Firstname"/></td></tr>
+
+    <tr><td colspan=2><label> <b>Last Name:</b> </label></td>
+    <td colspan=2><input type=text name=lname size=40 placeholder="Enter Lastname"/></td></tr>
+
+    <tr><td colspan=2><label> <b>UserID:</b> </label></td>
+    <td colspan=2><input type=text name=uid size=40 placeholder="Enter UserID"/></td></tr>
+
+    <tr><td colspan=2><label><b>Password:</b> </label></td>
+    <td colspan=2><input type=password name=pass size=40 placeholder="Enter Password"/></td></tr>
+
+    <tr><td colspan=2><label><b>Confirm Password:</b> </label></td>
+    <td colspan=2><input type=password name=cpass size=40 placeholder="Re-enter Password"/></td></tr>
+
+    <tr><td colspan=2><label> <b>Address:</b> </label></td>
+    <td colspan=2><input type=text name=addr size=40 placeholder="Enter Address"/></td></tr>
+
+    <tr><td colspan=2><label> <b>Email:</b> </label></td>
+    <td colspan=2><input type=text name=mail size=40 placeholder="Enter Email"/></td></tr>
+
+    <tr><td colspan=2><label> <b>Contact:</b> </label></td>
+    <td colspan=2><input type=text name=phoneno size=40 placeholder="Enter Contact No."/></td></tr>
+
+    <tr><td colspan=2><input type = reset /></td>
+    <td colspan=2><input type = submit value="Register"/><td></tr>
+
+    </table>
+    </form>
+    <script type="text/javascript">
+     function validate(){
+       var fn=document.forms[0].elements[0].value;
+                    var f=document.forms[0].elements[0];
+                    var rf=/^[a-zA-Z]{2,32}$/;
+                    var ln=document.forms[0].elements[1].value;
+                    var rl=/^[A-Za-z]{0,10}$/;
+                    var ph=document.forms[0].elements[7].value;
+
+                    var c=document.forms[0].elements[7];
+                    var re = /^[1-9][0-9]{9}$/;
+                    var pw=document.forms[0].elements[3].value;
+
+                    var rp=/^[A-Za-z]\w{7,14}$/;
+                    var cpw=document.forms[0].elements[4].value;
+
+                    var el=document.forms[0].elements[6].value;
+
+                    var e=document.forms[0].elements[6];
+                    var em=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+                    var us=document.forms[0].elements[2].value;
+                    var  u=document.forms[0].elements[2];
+
+                    var ru=/^[a-zA-Z]{5}[0-9]{5}$/;
+
+                    var add=document.forms[0].elements[5].value;
+                    var radd=/^[a-zA-Z][0-9]$/;
+
+                        if(!validfn(fn,f,rf)){
+                             alert("Invalid First name");
+                             return false;
+
+                        }
+                        else if(!validln(ln,rl)){
+                              alert("Invalid last name");
+                              return false;
+                        }
+                        else if(!validuser(us,u,ru)){
+                             u.innerHTML="Invalid uid";
+                             alert("Invalid uid");
+                             return false;
+
+                        }
+                        else if(!validph(re,ph,c)){
+                            c.style.border = "red solid 3px";
+                            alert("Incorrect number");
+                            return false;
+
+                        }
+                        else if(!validemail(el,e,em)){
+                             e.innerHTML="Invalid email";
+                             alert("Invalid email");
+                             return false;
+                        }
+                        else if(!validpw(pw,rp)){
+                              alert("Invalid password");
+                              return false;
+                        }
+                        else if (!validcpw(cpw,pw)){
+                              alert("Password mismatch");
+                              return false;
+                        }
+                        else if(!validaddr(add,radd)){
+                             alert("Invalid address");
+                             return false;
+                        }
+                        else{ 
+                             return true;
+                        }
+                }
+                function validph(re,ph,c){
+                    if(re.test(ph))
+                    {   
+                       
+                       return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                function validemail(el,e,em){
+                    if(em.test(el)){
+                        
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                function validuser(us,u,ru){
+                    if(ru.test(us)){
+                        
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                function validfn(fn,f,rf){
+                    if(rf.test(fn)){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                function validln(ln,rl){
+                    if(rl.test(ln)){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                function validpw(pw,rp){
+                    if(rp.test(pw)){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                function validcpw(cpw,pw){
+                    if(cpw==pw){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                function validaddr(add,radd){
+                    if(radd.test(add)){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+    </script>
+ </body>
+</html>

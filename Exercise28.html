@@ -1,0 +1,47 @@
+<html>
+ <head>
+  <style>
+     #disptxt{
+         background-color:black;
+         font-size: 50px;
+         position: absolute;
+         transform: translate(-50%, -50%);
+         top: 50%;
+         left: 50%;
+         color: white;
+         font-weight: bold; 
+         padding:5px;
+         border-radius:10px;
+     }
+  </style>
+ </head>
+ <body bgcolor=beige>
+    <span id='disptxt' onclick=hide()>Message will appear here</span>
+    <script type="text/javascript">
+      
+         fname = prompt("Enter first name");
+         lname = prompt("Enter last name");
+         var wish;
+         d = new Date();
+         hrs = d.getHours();
+         if(hrs<12){
+             wish="Good Morning";
+         }
+         else if(hrs==12){
+             wish="Good Noon";
+         }
+         else if(hrs>12 && hrs<16){
+             wish="Good AfterNoon";
+         }
+         else{
+             wish="Good Evening";
+         }
+         msg = wish+" "+fname+" "+lname;
+         document.getElementById('disptxt').innerHTML=msg;
+         function hide(){
+             document.getElementById('disptxt').style.display='none';
+         }
+    </script>
+ </body>
+</html>
+ 

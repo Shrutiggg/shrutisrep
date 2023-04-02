@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Q-28</title>
+    <style>
+        #disptxt{
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50% , -50%);
+             background-color: beige;
+             padding: 15px;
+             font-weight: bold;
+             color:black;
+         }
+    </style>
+  </head>
+  <body bgcolor=pink>
+    <span id="disptxt">TEXT-GROWING</span>
+
+    <script type="text/javascript">
+
+    fsize = 5;
+    disp = document.getElementById('disptxt');
+
+    var1 = setInterval(incText,100);
+
+    function incText(){
+       fsize=fsize+5;
+       disp.style.fontSize=fsize+"pt";
+       disp.style.color="red";
+       disp.innerHTML="TEXT-GROWING";
+       if(fsize>50){
+          clearInterval(var1);
+          var2 = setInterval(decText,100);
+       }
+    }
+    
+    function decText(){
+       fsize=fsize-5;
+       disp.style.fontSize=fsize+"pt";
+       disp.style.color="blue";
+       disp.innerHTML="TEXT-SHRINKING";
+       if(fsize===5){
+           clearInterval(var2);
+           // var1=setInterval(incText,100);   
+       }
+       
+    }
+    
+
+
+    </script>
+ 
+      
+  </body>
+</html>
